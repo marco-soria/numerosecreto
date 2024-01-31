@@ -1,0 +1,16 @@
+<h1>Pagina web de {{nombre}}</h1>
+<h2>Convertidor de monedas</h2>
+<ul>
+    {% for moneda in monedas %}
+        <li>{{moneda}}</li>
+    {% endfor %}
+</ul>
+<br>
+<form method="POST">
+    Ingrese Monto en Soles:
+    <input type="text" name="monto_origen" value="{{ request.form.get('monto_origen', '0') }}"/>
+    <input type="submit" value="Convertir a dolares">
+</form>
+{% if monto_destino > 0 %}
+    <h2>El monto en dolares es {{monto_destino}}</h2>
+{% endif %}
